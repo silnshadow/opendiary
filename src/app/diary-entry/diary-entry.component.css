@@ -1,0 +1,9 @@
+.daily-entry-experince{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.daily-entry-experince button{
+    margin-left: 80px;
+}

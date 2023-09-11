@@ -1,0 +1,25 @@
+.diary-topic{
+    background-color: rgba(130, 233, 181, 0.53);
+    border: 0.2 px solid whitesmoke;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.diary-topic-button{
+    background-color: rgba(130, 233, 181, 0.53);
+    border: 0.2 px solid whitesmoke;
+    padding: 5px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+.spacing-div {
+    margin-right: 8px; /* Add margin to create space between elements */
+  }
+  

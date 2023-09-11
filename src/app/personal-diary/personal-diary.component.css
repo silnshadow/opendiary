@@ -1,0 +1,45 @@
+.personal-diary {
+    background-color: #f0f0f0; /* Light background color */
+    padding: 20px;
+    font-family: 'Times New Roman', serif;
+  }
+  
+  .diary-header {
+    text-align: center;
+  }
+  
+  .diary-entry {
+    background-color: #ffffff; /* White background for entries */
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .nature-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit:fill; /* Ensure the image covers its container */
+  }
+  
+  .entry-content {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+  
+  .entry-date {
+    font-style: italic;
+    margin-top: 10px;
+    text-align: right;
+  }
+
+  .user-personal-blogs{
+    list-style: none;
+  }
+
+  .daily-blog-entry-button-container {
+    display: flex;
+    justify-content: flex-end; /* Move the button to the right */
+  }
+  
+  

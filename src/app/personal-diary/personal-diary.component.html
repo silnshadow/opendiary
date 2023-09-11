@@ -1,0 +1,27 @@
+<h1 style="display: block; text-align: center">My Personal Diary</h1>
+
+<div class="daily-blog-entry-button-container">
+    <button class="daily-blog-entry-button">
+      <a class="daily-blog-entry-button" routerLink="/diaryentry">Write</a>
+    </button>
+  </div>
+  
+
+<ul class="user-personal-blogs">
+  <li *ngFor="let blog of personalDiaryEntries">
+    <div class="personal-diary">
+      <div class="diary-header"></div>
+      <div class="diary-entry">
+        <img
+          src="https://th.bing.com/th/id/OIP.qJizp7zd3oYaDWQ0uOh8lwHaEo?w=312&h=195&c=7&r=0&o=5&pid=1.7"
+          alt="Nature Image"
+          class="nature-image"
+        />
+        <p class="entry-content">
+          {{ blog.description }}
+        </p>
+        <p class="entry-date">{{ blog.publishedDate }}</p>
+      </div>
+    </div>
+  </li>
+</ul>

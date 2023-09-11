@@ -1,12 +1,31 @@
 <header>
-  <div 
-  style="background-color: white;
-  Height: 60px;
-  border: 2px solid rgb(142, 137, 137);
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;">
-    <span >Open Diary</span>
+  <div
+    style="
+      background-color: white;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <h1>Open Diary</h1>
   </div>
 </header>
+
+<div class="diary-topic">
+  <h3 >Welcome to Open Diary</h3>
+  <h5 style="margin-top:-15px ;color: green;">Write anything you wish...</h5>
+  <div class="diary-topic-button">
+    <button routerLink="/personal">Personal</button>
+    <div class="spacing-div"></div>
+    <button routerLink="/technical">Technical</button>
+    <div class="spacing-div"></div>
+    <button routerLink="/health">Health</button>
+    <div class="spacing-div"></div>
+    <button routerLink="/workplace">Workplace</button>
+  </div>
+  <br>
+</div>
+
+<router-outlet></router-outlet>
+
