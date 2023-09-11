@@ -15,6 +15,7 @@ export class DiaryEntryComponent implements OnInit {
   ngOnInit(): void {}
 
   addEntry(): void {
+    console.log('Adding entry:', this.entry);
     if (this.entry.title.trim() !== '' && this.entry.description.trim() !== '') {
       this.entry.publishedDate = new Date();
       
@@ -22,7 +23,6 @@ export class DiaryEntryComponent implements OnInit {
       
       this.entry = new DiaryEntry();
       
-      console.log('Adding entry:', this.entry);
     } else {
      
       console.log('Title and description are required.');
