@@ -22,6 +22,18 @@
       ></textarea>
     </div>
     <br>
+    <div class="form-group">
+      <label for="loggedUser">Username:</label>
+      <input
+     type="text"
+        id="loggedUser"
+        name="loggedUser"
+        class="form-control"
+        placeholder="you have freedom to choose any name"
+        [(ngModel)]="entry.loggedUser.anonmyusId"
+      />
+    </div>
+    <br/>
     <button type="submit" class="btn btn-primary" (click)="addEntry()">
       Add Entry
     </button>
