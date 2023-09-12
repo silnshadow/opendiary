@@ -19,8 +19,6 @@ export class DiaryEntryComponent implements OnInit {
     if (this.entry.title.trim() !== '' && this.entry.description.trim() !== '') {
       this.entry.publishedDate = new Date();
       this.entry.loggedUser.id = (5+1).toString();
-
-      
       this.diaryserviceService.addEntryInPersonalDiary(this.entry);
       
       this.entry = new DiaryEntry();

@@ -42,5 +42,10 @@
     display: flex;
     justify-content: flex-end; /* Move the button to the right */
   }
+
+  .existing-thread-chat{
+    display: flex;
+    justify-content: flex-end;
+  }
   
   

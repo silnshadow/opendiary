@@ -3,30 +3,42 @@
 <app-diary-entry *ngIf="dailyEntryVisible"></app-diary-entry>
 
 <div class="daily-blog-entry-button-container">
-    <button class="daily-blog-entry-button"
-    (click)="setEntryVisibility()">
-      Write
-    </button>
-  </div>
-  
+  <button class="daily-blog-entry-button" (click)="setEntryVisibility()">
+    Write
+  </button>
+</div>
 
 <ul class="user-personal-blogs">
-  <li *ngFor="let blog of personalDiaryEntries">
-    <div class="personal-diary">
-      <div class="diary-header"></div>
-      <div class="diary-entry">
-        <h3>{{blog.title}}</h3>
-        <img
-          src="https://th.bing.com/th/id/OIP.qJizp7zd3oYaDWQ0uOh8lwHaEo?w=312&h=195&c=7&r=0&o=5&pid=1.7"
-          alt="Nature Image"
-          class="nature-image"
-        />
-        <p class="entry-content">
-          {{ blog.description }}
-        </p>
-        <p class="entry-date">{{ blog.publishedDate | date}}</p>
-        <p class="entry-date">user {{ blog.loggedUser.anonmyusId}}</p>
+  <li *ngFor="let chatThread of chatThreads">
+    <div>
+        <button>
+          #{{ chatThread.threadId }}
+        </button>
       </div>
-    </div>
+    <ul class="user-personal-blogs">
+      <li *ngFor="let blog of chatThread.diaryEntries">
+        <div class="personal-diary">
+          <div class="diary-header"></div>
+          <div class="diary-entry">
+            <div class="existing-thread-chat">
+              <button (click)="writeInExistingThread(chatThread.threadId)">
+                <i class="fas fa-pencil-alt"></i> join
+              </button>
+            </div>
+            <h3>{{ blog.title }}</h3>
+            <img
+              src="https://th.bing.com/th/id/OIP.qJizp7zd3oYaDWQ0uOh8lwHaEo?w=312&h=195&c=7&r=0&o=5&pid=1.7"
+              alt="Nature Image"
+              class="nature-image"
+            />
+            <p class="entry-content">
+              {{ blog.description }}
+            </p>
+            <p class="entry-date">{{ blog.publishedDate | date }}</p>
+            <p class="entry-date">user {{ blog.loggedUser.anonymousId }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
   </li>
 </ul>

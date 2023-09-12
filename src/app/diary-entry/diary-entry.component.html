@@ -2,6 +2,17 @@
   <h2>Add Your Daily Experience</h2>
   <form>
     <div class="form-group">
+      <label for="title">Thread:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="form-control"
+        [(ngModel)]="entry.title"
+      />
+    </div>
+    <br/>
+    <div class="form-group">
       <label for="title">Title:</label>
       <input
         type="text"
