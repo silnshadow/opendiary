@@ -18,6 +18,8 @@ export class DiaryEntryComponent implements OnInit {
     console.log('Adding entry:', this.entry);
     if (this.entry.title.trim() !== '' && this.entry.description.trim() !== '') {
       this.entry.publishedDate = new Date();
+      this.entry.loggedUser.id = (5+1).toString();
+
       
       this.diaryserviceService.addEntryInPersonalDiary(this.entry);
       

@@ -7,12 +7,21 @@ import { DiaryserviceService } from '../diaryservice.service';
   templateUrl: './personal-diary.component.html',
   styleUrls: ['./personal-diary.component.css']
 })
+
 export class PersonalDiaryComponent implements OnInit {
   personalDiaryEntries: DiaryEntry[] = [];
+  dailyEntryVisible: boolean = false;
 
-  constructor(private diaryserviceService: DiaryserviceService) {}
+  constructor(private diaryserviceService: DiaryserviceService) {
+    this.personalDiaryEntries = this.diaryserviceService.getPersonalDiary().reverse();
 
+  }
+
+  setEntryVisibility(): void{
+
+      this.dailyEntryVisible = !this.dailyEntryVisible;
+
+  }
   ngOnInit(): void {
-    this.personalDiaryEntries = this.diaryserviceService.getPersonalDiary();
   }
 }

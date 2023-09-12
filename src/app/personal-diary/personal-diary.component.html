@@ -1,8 +1,11 @@
 <h1 style="display: block; text-align: center">My Personal Diary</h1>
 
+<app-diary-entry *ngIf="dailyEntryVisible"></app-diary-entry>
+
 <div class="daily-blog-entry-button-container">
-    <button class="daily-blog-entry-button">
-      <a class="daily-blog-entry-button" routerLink="/diaryentry">Write</a>
+    <button class="daily-blog-entry-button"
+    (click)="setEntryVisibility()">
+      Write
     </button>
   </div>
   
@@ -12,6 +15,7 @@
     <div class="personal-diary">
       <div class="diary-header"></div>
       <div class="diary-entry">
+        <h3>{{blog.title}}</h3>
         <img
           src="https://th.bing.com/th/id/OIP.qJizp7zd3oYaDWQ0uOh8lwHaEo?w=312&h=195&c=7&r=0&o=5&pid=1.7"
           alt="Nature Image"
@@ -20,7 +24,8 @@
         <p class="entry-content">
           {{ blog.description }}
         </p>
-        <p class="entry-date">{{ blog.publishedDate }}</p>
+        <p class="entry-date">{{ blog.publishedDate | date}}</p>
+        <p class="entry-date">user {{ blog.loggedUser.anonmyusId}}</p>
       </div>
     </div>
   </li>
