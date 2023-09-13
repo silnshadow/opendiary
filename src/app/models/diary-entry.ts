@@ -5,5 +5,10 @@ export class DiaryEntry {
     title: string = '';
     description: string = '';
     publishedDate: Date = new Date();
+    threadId: string = '';
   }
-  
+
+  export class ChatThread{
+    threadId: string = '';
+    diaryEntries: Array<DiaryEntry> = [];
+  }
