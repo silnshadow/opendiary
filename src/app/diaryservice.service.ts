@@ -56,15 +56,15 @@ export class DiaryserviceService {
     // Sample data for chat threads
     this.chatThreads = [
       {
-        threadId: 'thread1',
+        threadId: this.generator.generateRandomThreadId(),
         diaryEntries: [this.personalDiaries[0], this.personalDiaries[1]],
       },
       {
-        threadId: 'thread2',
+        threadId: this.generator.generateRandomThreadId(),
         diaryEntries: [this.personalDiaries[2]],
       },
       {
-        threadId: 'thread3',
+        threadId: this.generator.generateRandomThreadId(),
         diaryEntries: [this.personalDiaries[3]],
       },
     ];

@@ -11,7 +11,7 @@ export class Generator {
         return thread;
       }
 
-      public generateRandomThreadId(): string {
+      generateRandomThreadId(): string {
         const characters =
           'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         const threadIdLength = 8; // Adjust the length as needed
