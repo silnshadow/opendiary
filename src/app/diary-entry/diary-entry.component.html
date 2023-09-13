@@ -2,13 +2,14 @@
   <h2>Add Your Daily Experience</h2>
   <form>
     <div class="form-group">
-      <label for="title">Thread:</label>
+      <label for="thread">Thread:</label>
       <input
         type="text"
-        id="title"
-        name="title"
+        id="thread"
+        name="thread"
         class="form-control"
-        [(ngModel)]="entry.title"
+        [(ngModel)]="threadId"
+        disabled
       />
     </div>
     <br/>
@@ -41,7 +42,7 @@
         name="loggedUser"
         class="form-control"
         placeholder="you have freedom to choose any name"
-        [(ngModel)]="entry.loggedUser.anonmyusId"
+        [(ngModel)]="entry.loggedUser.anonymousId"
       />
     </div>
     <br/>

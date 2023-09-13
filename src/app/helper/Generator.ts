@@ -10,6 +10,20 @@ export class Generator {
       
         return thread;
       }
+
+      public generateRandomThreadId(): string {
+        const characters =
+          'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const threadIdLength = 8; // Adjust the length as needed
+        let threadId = '';
+    
+        for (let i = 0; i < threadIdLength; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          threadId += characters.charAt(randomIndex);
+        }
+    
+        return threadId;
+      }
       
 
 }

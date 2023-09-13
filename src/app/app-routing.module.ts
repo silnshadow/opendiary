@@ -14,6 +14,8 @@ const routes: Routes = [
   { path: 'health', component: HealthDiaryComponent },
   { path: 'workplace', component: WorkplaceDiaryComponent },
   { path: 'diaryentry', component: DiaryEntryComponent },
+  { path: 'diaryentry/:threadId', component: DiaryEntryComponent }
+
 ];
 
 @NgModule({

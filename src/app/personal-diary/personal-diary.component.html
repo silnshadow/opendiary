@@ -21,9 +21,11 @@
           <div class="diary-header"></div>
           <div class="diary-entry">
             <div class="existing-thread-chat">
-              <button (click)="writeInExistingThread(chatThread.threadId)">
-                <i class="fas fa-pencil-alt"></i> join
-              </button>
+                <nav routerLink="/diaryentry/{{chatThread.threadId}}">
+                    <button>
+                      <i class="fas fa-pencil-alt"></i> join
+                    </button>
+                  </nav>
             </div>
             <h3>{{ blog.title }}</h3>
             <img

@@ -93,4 +93,22 @@ export class DiaryserviceService {
       this.personalDiaries.unshift(entry);
     }
   }
+
+  addEntryInChatThread(chatThread: ChatThread): void {
+    if (ChatThread) {
+      console.log('initial'+this.chatThreads.length);
+
+      this.chatThreads.unshift(chatThread);
+      console.log('final'+this.chatThreads.length);
+    }
+  }
+
+  addEntryInMarkedThread(threadId: string, entry: DiaryEntry): void {
+    if (threadId && entry) {
+      console.log('initial'+this.chatThreads.find(chatThread => chatThread.threadId == threadId)?.diaryEntries.length);
+      this.chatThreads.find(chatThread => chatThread.threadId == threadId)?.diaryEntries.unshift(entry);
+      console.log('final'+this.chatThreads.find(chatThread => chatThread.threadId == threadId)?.diaryEntries.length);
+
+    }
+  }
 }
