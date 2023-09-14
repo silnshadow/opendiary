@@ -35,12 +35,12 @@ export class PersonalDiaryComponent implements OnInit {
     console.log(`Search query: ${query}`);
     var results = this.diaryserviceService.getChatThreadsFromKeyword(query);
     this.searchResults = results;
-    this.chatThreads = results;
+    this.displayThreads = results;
     console.log(results.length);
   }
 
   handlePageEvent(event: PageEvent) {
-    console.log('Page changed:', event);
+    console.log('Page changed handling:', event);
 
     const startIndex = event.pageIndex * event.pageSize;
     const endIndex = startIndex + event.pageSize;

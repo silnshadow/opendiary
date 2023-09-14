@@ -12,61 +12,48 @@ export class DiaryserviceService {
   private chatThreads: ChatThread[] = [];
   private generator = new Generator();
 
+  generateRandomDiaryEntry(): DiaryEntry {
+    const randomTitle = `Entry ${Math.floor(Math.random() * 100)}`;
+    const randomDescription = `Description for ${randomTitle}`;
+    const randomPublishedDate = new Date(
+      Date.now() - Math.floor(Math.random() * 1000000000)
+    );
+    const randomUser: User = {
+      id: `${Math.floor(Math.random() * 10)}`,
+      anonymousId: `u-anm ${Math.floor(Math.random() * 10)}`,
+    };
+  
+    return {
+      loggedUser: randomUser,
+      title: randomTitle,
+      description: randomDescription,
+      publishedDate: randomPublishedDate,
+      threadId: this.generator.generateRandomThreadId(),
+    };
+  }
+  
+  generateRandomChatThread(): ChatThread {
+    const randomThreadId = this.generator.generateRandomThreadId();
+    const randomDiaryEntries: DiaryEntry[] = [];
+  
+    const numEntries = Math.floor(Math.random() * 5) + 1;
+  
+    for (let i = 0; i < numEntries; i++) {
+      randomDiaryEntries.push(this.generateRandomDiaryEntry());
+    }
+  
+    return {
+      threadId: randomThreadId,
+      diaryEntries: randomDiaryEntries,
+    };
+  }
+  
   constructor() {
-    this.personalDiaries = [
-      {
-        title: 'Travelling',
-        description: 'This is the first time I am writing about anything',
-        publishedDate: new Date('2023-09-15'),
-        loggedUser: { id: '1', anonymousId: 'u-anm 1' } as User,
-        threadId: this.generator.assignThread('Travelling'),
-      },
-      {
-        title: 'Trekking',
-        description: 'This is the second personal diary entry.',
-        publishedDate: new Date('2023-09-16'),
-        loggedUser: { id: '2', anonymousId: 'u-anm 2' } as User,
-        threadId: this.generator.assignThread('thread2'),
-      },
-      {
-        title: 'Cycling',
-        description: 'This is the third personal diary entry.',
-        publishedDate: new Date('2023-09-17'),
-        loggedUser: { id: '3', anonymousId: 'u-anm 3' } as User,
-        threadId: this.generator.assignThread('thread3'),
-      },
-      {
-        title: 'Group trip with friends',
-        description: 'This is the fourth personal diary entry.',
-        publishedDate: new Date('2023-09-18'),
-        loggedUser: { id: '4', anonymousId: 'u-anm 4' } as User,
-        threadId: this.generator.assignThread('thread4'),
-      },
-      {
-        title: 'Welcome to my blog',
-        description:
-          "We welcome contributions from the community to make OpenDiary even better. If you're interested in collaborating, please feel free to open an issue, suggest enhancements, or submit pull requests. Your contributions are highly appreciated!",
-        publishedDate: new Date('2023-09-19'),
-        loggedUser: { id: '5', anonymousId: 'u-anm 5' } as User,
-        threadId: this.generator.assignThread('Travelling'),
-      },
-    ];
 
-    // Sample data for chat threads
-    this.chatThreads = [
-      {
-        threadId: this.generator.generateRandomThreadId(),
-        diaryEntries: [this.personalDiaries[0], this.personalDiaries[1]],
-      },
-      {
-        threadId: this.generator.generateRandomThreadId(),
-        diaryEntries: [this.personalDiaries[2]],
-      },
-      {
-        threadId: this.generator.generateRandomThreadId(),
-        diaryEntries: [this.personalDiaries[3]],
-      },
-    ];
+    for (let i = 0; i < 100; i++) {
+      this.chatThreads.push(this.generateRandomChatThread());
+    }
+    
   }
 
   getChatThreadsForThreadId(threadId: string): DiaryEntry[] {
