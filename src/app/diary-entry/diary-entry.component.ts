@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatThread, DiaryEntry } from '../models/diary-entry';
-import { DiaryserviceService } from '../diaryservice.service';
+import { DiaryserviceService } from '../Service/diaryservice.service';
 import { ActivatedRoute } from '@angular/router';
 import { Generator } from '../helper/Generator';
 

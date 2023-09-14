@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ChatThread, DiaryEntry } from './models/diary-entry';
-import { Generator } from './helper/Generator';
+import { ChatThread, DiaryEntry } from '../models/diary-entry';
+import { Generator } from '../helper/Generator';
 import { isEmpty } from 'rxjs';
-import { User } from './models/users';
+import { User } from '../models/users';
 
 @Injectable({
   providedIn: 'root',

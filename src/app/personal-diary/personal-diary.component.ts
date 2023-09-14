@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatThread, DiaryEntry } from '../models/diary-entry';
 import { PageEvent } from '@angular/material/paginator';
-import { DiaryserviceService } from '../diaryservice.service';
+import { DiaryserviceService } from '../Service/diaryservice.service';
 import { PaginatorComponent } from '../common-component/paginator/paginator.component';
 
 @Component({
