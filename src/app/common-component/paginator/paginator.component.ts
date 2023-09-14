@@ -8,8 +8,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 
 export class PaginatorComponent {
-  length = 5;
-  pageSize = 2;
+  length = 100;
+  pageSize = 10;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
 
@@ -21,7 +21,7 @@ export class PaginatorComponent {
   @Output() pageChanged: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
 
   handlePageEvent(event: PageEvent) {
-    console.log("hitting");
+    console.log("page change initiated...");
     this.pageChanged.emit(event);
   }
 

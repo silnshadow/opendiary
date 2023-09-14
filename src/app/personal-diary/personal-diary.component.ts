@@ -35,7 +35,7 @@ export class PersonalDiaryComponent implements OnInit {
     console.log(`Search query: ${query}`);
     var results = this.diaryserviceService.getChatThreadsFromKeyword(query);
     this.searchResults = results;
-    this.chatThreads = results;
+    this.displayThreads = results;
     console.log(results.length);
   }
 
