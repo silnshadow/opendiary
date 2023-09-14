@@ -7,7 +7,16 @@
 }
 
 .chat-thread button {
-  background-color: #007bff; /* Blue button background */
+  background-color: #6dbf9d; /* Blue button background */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.daily-blog-entry-button-container button {
+  background-color: #2ba54b; /* Blue button background */
   color: #fff; /* White text color */
   border: none;
   padding: 5px 15px;
@@ -84,5 +93,14 @@
 .search-bar{
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+
+}
+
+.pagination-area{
+  border: rgb(53, 136, 100) 1px solid;
+  box-shadow: 6px 4px 5px rgb(53, 136, 100);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }

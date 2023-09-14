@@ -9,12 +9,18 @@
 
 <div class="daily-blog-entry-button-container">
   <button class="daily-blog-entry-button" (click)="setEntryVisibility()">
-    Write
+    New Thread
   </button>
 </div>
 
+<div class="pagination-area">
+  <app-paginator (pageChanged)="handlePageEvent($event)"></app-paginator>
+
+</div>
+
+
 <ul class="user-personal-blogs">
-  <li *ngFor="let chatThread of chatThreads">
+  <li *ngFor="let chatThread of displayThreads">
     <div class="chat-thread">
       <button>
         #{{ chatThread.threadId }}
