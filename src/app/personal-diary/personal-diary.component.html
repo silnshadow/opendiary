@@ -9,11 +9,14 @@
 
 <div class="daily-blog-entry-button-container">
   <button class="daily-blog-entry-button" (click)="setEntryVisibility()">
-    Write
+    New Thread
   </button>
 </div>
 
-<app-paginator (pageChanged)="handlePageEvent($event)"></app-paginator>
+<div class="pagination-area">
+  <app-paginator (pageChanged)="handlePageEvent($event)"></app-paginator>
+
+</div>
 
 
 <ul class="user-personal-blogs">
