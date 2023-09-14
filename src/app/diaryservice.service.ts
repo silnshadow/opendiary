@@ -13,7 +13,6 @@ export class DiaryserviceService {
   private generator = new Generator();
 
   constructor() {
-    
     this.personalDiaries = [
       {
         title: 'Travelling',
@@ -71,15 +70,17 @@ export class DiaryserviceService {
   }
 
   getChatThreadsForThreadId(threadId: string): DiaryEntry[] {
-    const chatThread = this.chatThreads.find((thread) => thread.threadId === threadId);
-  
+    const chatThread = this.chatThreads.find(
+      (thread) => thread.threadId === threadId
+    );
+
     if (chatThread) {
       return chatThread.diaryEntries;
     }
-  
+
     return [];
   }
-  
+
   getPersonalDiary(): DiaryEntry[] {
     return this.personalDiaries;
   }
@@ -96,19 +97,44 @@ export class DiaryserviceService {
 
   addEntryInChatThread(chatThread: ChatThread): void {
     if (ChatThread) {
-      console.log('initial'+this.chatThreads.length);
+      console.log('initial' + this.chatThreads.length);
 
       this.chatThreads.unshift(chatThread);
-      console.log('final'+this.chatThreads.length);
+      console.log('final' + this.chatThreads.length);
     }
   }
 
   addEntryInMarkedThread(threadId: string, entry: DiaryEntry): void {
     if (threadId && entry) {
-      console.log('initial'+this.chatThreads.find(chatThread => chatThread.threadId == threadId)?.diaryEntries.length);
-      this.chatThreads.find(chatThread => chatThread.threadId == threadId)?.diaryEntries.unshift(entry);
-      console.log('final'+this.chatThreads.find(chatThread => chatThread.threadId == threadId)?.diaryEntries.length);
+      console.log(
+        'initial' +
+          this.chatThreads.find((chatThread) => chatThread.threadId == threadId)
+            ?.diaryEntries.length
+      );
+      this.chatThreads
+        .find((chatThread) => chatThread.threadId == threadId)
+        ?.diaryEntries.unshift(entry);
+      console.log(
+        'final' +
+          this.chatThreads.find((chatThread) => chatThread.threadId == threadId)
+            ?.diaryEntries.length
+      );
+    }
+  }
 
+  // Search section
+
+  getChatThreadsFromKeyword(query: string) {
+    if (query) {
+      var filteredChatThreads = this.chatThreads.filter((chatThread) =>
+        chatThread.diaryEntries.some((entry) =>
+          entry.title.toLowerCase().includes(query.toLowerCase()) ||
+          entry.description.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+      return filteredChatThreads;
+    } else {
+      return this.chatThreads;
     }
   }
 }

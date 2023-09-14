@@ -6,6 +6,7 @@ import { HealthDiaryComponent } from './health-diary/health-diary.component';
 import { WorkplaceDiaryComponent } from './workplace-diary/workplace-diary.component';
 
 import { DiaryEntryComponent } from './diary-entry/diary-entry.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/personal', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'health', component: HealthDiaryComponent },
   { path: 'workplace', component: WorkplaceDiaryComponent },
   { path: 'diaryentry', component: DiaryEntryComponent },
-  { path: 'diaryentry/:threadId', component: DiaryEntryComponent }
+  { path: 'diaryentry/:threadId', component: DiaryEntryComponent },
+  { path: 'searchbar', component: SearchBarComponent },
 
 ];
 
