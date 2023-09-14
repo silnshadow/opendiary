@@ -2,6 +2,11 @@
 
 <app-diary-entry *ngIf="dailyEntryVisible"></app-diary-entry>
 
+<div class="search-bar">
+  <app-search-bar (searchEvent)="performSearch($event)"></app-search-bar>
+
+</div>
+
 <div class="daily-blog-entry-button-container">
   <button class="daily-blog-entry-button" (click)="setEntryVisibility()">
     Write
@@ -32,7 +37,7 @@
           <div class="chat-entry-content">
             <h3>{{ blog.title }}</h3>
             <img
-              src="https://th.bing.com/th/id/OIP.qJizp7zd3oYaDWQ0uOh8lwHaEo?w=312&h=195&c=7&r=0&o=5&pid=1.7"
+              src="https://th.bing.com/th/id/OIP.E4gCagrjAkQ5td5qjSc3rwHaE7?w=280&h=187&c=7&r=0&o=5&pid=1.7"
               alt="Nature Image"
               class="nature-image"
             />

@@ -9,6 +9,7 @@ import { PersonalDiaryComponent } from './personal-diary/personal-diary.componen
 import { TechnicalDiaryComponent } from './technical-diary/technical-diary.component';
 import { HealthDiaryComponent } from './health-diary/health-diary.component';
 import { WorkplaceDiaryComponent } from './workplace-diary/workplace-diary.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { WorkplaceDiaryComponent } from './workplace-diary/workplace-diary.compo
     PersonalDiaryComponent,
     TechnicalDiaryComponent,
     HealthDiaryComponent,
-    WorkplaceDiaryComponent
+    WorkplaceDiaryComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

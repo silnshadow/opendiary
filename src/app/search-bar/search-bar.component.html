@@ -1,0 +1,10 @@
+<div class="searchbar-div">
+    <label>Search: </label>
+    <input
+      type="text"
+      placeholder="Type your search query..."
+      (keyup.enter)="onSearch()"
+      [(ngModel)]="searchQuery"
+    />
+  </div>
+  
