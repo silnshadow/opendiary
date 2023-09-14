@@ -1,3 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
+button {
+    background-color: #2ba54b; /* Blue button background */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
