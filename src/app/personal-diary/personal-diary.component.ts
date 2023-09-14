@@ -40,7 +40,7 @@ export class PersonalDiaryComponent implements OnInit {
   }
 
   handlePageEvent(event: PageEvent) {
-    console.log('Page changed:', event);
+    console.log('Page changed handling:', event);
 
     const startIndex = event.pageIndex * event.pageSize;
     const endIndex = startIndex + event.pageSize;
