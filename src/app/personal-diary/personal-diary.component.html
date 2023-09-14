@@ -13,8 +13,11 @@
   </button>
 </div>
 
+<app-paginator (pageChanged)="handlePageEvent($event)"></app-paginator>
+
+
 <ul class="user-personal-blogs">
-  <li *ngFor="let chatThread of chatThreads">
+  <li *ngFor="let chatThread of displayThreads">
     <div class="chat-thread">
       <button>
         #{{ chatThread.threadId }}

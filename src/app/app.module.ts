@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { TechnicalDiaryComponent } from './technical-diary/technical-diary.compo
 import { HealthDiaryComponent } from './health-diary/health-diary.component';
 import { WorkplaceDiaryComponent } from './workplace-diary/workplace-diary.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { PaginatorComponent } from './common-component/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     TechnicalDiaryComponent,
     HealthDiaryComponent,
     WorkplaceDiaryComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
