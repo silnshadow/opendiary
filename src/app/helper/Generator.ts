@@ -1,3 +1,6 @@
+import { ChatThread, DiaryEntry } from "../models/diary-entry";
+import { User } from "../models/users";
+
 export class Generator {
 
     assignThread(title: string): string {
@@ -26,4 +29,39 @@ export class Generator {
       }
       
 
+      generateRandomDiaryEntry(): DiaryEntry {
+        const randomTitle = `Entry ${Math.floor(Math.random() * 100)}`;
+        const randomDescription = `Description for ${randomTitle}`;
+        const randomPublishedDate = new Date(
+          Date.now() - Math.floor(Math.random() * 1000000000)
+        );
+        const randomUser: User = {
+          id: `${Math.floor(Math.random() * 10)}`,
+          anonymousId: `u-anm ${Math.floor(Math.random() * 10)}`,
+        };
+      
+        return {
+          loggedUser: randomUser,
+          title: randomTitle,
+          description: randomDescription,
+          publishedDate: randomPublishedDate,
+          threadId: this.generateRandomThreadId(),
+        };
+      }
+      
+      generateRandomChatThread(): ChatThread {
+        const randomThreadId = this.generateRandomThreadId();
+        const randomDiaryEntries: DiaryEntry[] = [];
+      
+        const numEntries = Math.floor(Math.random() * 5) + 1;
+      
+        for (let i = 0; i < numEntries; i++) {
+          randomDiaryEntries.push(this.generateRandomDiaryEntry());
+        }
+      
+        return {
+          threadId: randomThreadId,
+          diaryEntries: randomDiaryEntries,
+        };
+      }
 }

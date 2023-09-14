@@ -3,6 +3,8 @@ import { ChatThread, DiaryEntry } from '../models/diary-entry';
 import { PageEvent } from '@angular/material/paginator';
 import { DiaryserviceService } from '../Service/diaryservice.service';
 import { PaginatorComponent } from '../common-component/paginator/paginator.component';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-personal-diary',
@@ -15,17 +17,26 @@ export class PersonalDiaryComponent implements OnInit {
   displayThreads: ChatThread[] = [];
   dailyEntryVisible: boolean = false;
   searchResults: ChatThread[] = [];
-  pageSize = 2;
+  pageSize = 10;
   pageIndex = 0;
 
   constructor(private diaryserviceService: DiaryserviceService) {
 
-    this.chatThreads = this.diaryserviceService.getChatThreads().reverse();
-    
-    this.displayThreads = this.chatThreads.slice(0, this.pageSize);
+
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.diaryserviceService.getChatThreads().subscribe(
+      (chatThreads: ChatThread[]) => {
+        this.chatThreads = chatThreads.reverse();
+        this.displayThreads = this.chatThreads.slice(0, this.pageSize);
+      },
+      (error) => {
+        console.error('Error fetching chatThreads:', error);
+      },
+    );
+  }
+
 
   setEntryVisibility(): void {
     this.dailyEntryVisible = !this.dailyEntryVisible;
