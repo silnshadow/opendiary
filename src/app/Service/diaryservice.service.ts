@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ChatThread, DiaryEntry } from './models/diary-entry';
-import { Generator } from './helper/Generator';
-import { isEmpty } from 'rxjs';
-import { User } from './models/users';
+import { ChatThread, DiaryEntry } from '../models/diary-entry';
+import { Generator } from '../helper/Generator';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,48 +9,14 @@ import { User } from './models/users';
 export class DiaryserviceService {
   private personalDiaries: DiaryEntry[] = [];
   private chatThreads: ChatThread[] = [];
+// Create a BehaviorSubject to track chatThreads changes
+ private chatThreadsSubject = new BehaviorSubject<ChatThread[]>([]);
   private generator = new Generator();
-
-  generateRandomDiaryEntry(): DiaryEntry {
-    const randomTitle = `Entry ${Math.floor(Math.random() * 100)}`;
-    const randomDescription = `Description for ${randomTitle}`;
-    const randomPublishedDate = new Date(
-      Date.now() - Math.floor(Math.random() * 1000000000)
-    );
-    const randomUser: User = {
-      id: `${Math.floor(Math.random() * 10)}`,
-      anonymousId: `u-anm ${Math.floor(Math.random() * 10)}`,
-    };
-  
-    return {
-      loggedUser: randomUser,
-      title: randomTitle,
-      description: randomDescription,
-      publishedDate: randomPublishedDate,
-      threadId: this.generator.generateRandomThreadId(),
-    };
-  }
-  
-  generateRandomChatThread(): ChatThread {
-    const randomThreadId = this.generator.generateRandomThreadId();
-    const randomDiaryEntries: DiaryEntry[] = [];
-  
-    const numEntries = Math.floor(Math.random() * 5) + 1;
-  
-    for (let i = 0; i < numEntries; i++) {
-      randomDiaryEntries.push(this.generateRandomDiaryEntry());
-    }
-  
-    return {
-      threadId: randomThreadId,
-      diaryEntries: randomDiaryEntries,
-    };
-  }
   
   constructor() {
 
     for (let i = 0; i < 100; i++) {
-      this.chatThreads.push(this.generateRandomChatThread());
+      this.addEntryInChatThread(this.generator.generateRandomChatThread());
     }
     
   }
@@ -72,8 +37,9 @@ export class DiaryserviceService {
     return this.personalDiaries;
   }
 
-  getChatThreads(): ChatThread[] {
-    return this.chatThreads;
+
+  getChatThreads(): Observable<ChatThread[]> {
+    return this.chatThreadsSubject.asObservable();
   }
 
   addEntryInPersonalDiary(entry: DiaryEntry): void {
@@ -87,6 +53,7 @@ export class DiaryserviceService {
       console.log('initial' + this.chatThreads.length);
 
       this.chatThreads.unshift(chatThread);
+      this.chatThreadsSubject.next([...this.chatThreads]);
       console.log('final' + this.chatThreads.length);
     }
   }
